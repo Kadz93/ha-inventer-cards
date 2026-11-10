@@ -1,0 +1,6 @@
+{
+  "name": "inVENTer e16 Lovelace Cards",
+  "render_readme": true,
+  "filename": "inventer-e16-cards.js",
+  "homeassistant": "2024.1.0"
+}

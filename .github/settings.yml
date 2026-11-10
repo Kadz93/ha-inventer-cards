@@ -1,0 +1,20 @@
+# GitHub Repository Settings
+# Used by GitHub Probot / Settings sync
+repository:
+  name: ha-inventer-cards
+  description: "Custom Lovelace cards for inVENTer Easy Connect e16 ventilation systems in Home Assistant"
+  topics:
+    - home-assistant
+    - homeassistant
+    - inventer
+    - inventer-e16
+    - easy-connect-e16
+    - ventilation
+    - heat-recovery
+    - lovelace
+    - lovelace-card
+    - custom-card
+    - custom-cards
+    - hacs
+    - dashboard
+    - smart-home

@@ -1,0 +1,33 @@
+{
+  "name": "ha-inventer-cards",
+  "version": "1.0.0",
+  "description": "Custom Lovelace cards for inVENTer Easy Connect e16 ventilation system in Home Assistant",
+  "main": "dist/inventer-e16-cards.js",
+  "scripts": {
+    "build": "python scripts/build.py"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kadz93/ha-inventer-cards.git"
+  },
+  "keywords": [
+    "home-assistant",
+    "homeassistant",
+    "inventer",
+    "inventer-e16",
+    "easy-connect-e16",
+    "ventilation",
+    "heat-recovery",
+    "lovelace",
+    "lovelace-card",
+    "custom-card",
+    "hacs",
+    "dashboard"
+  ],
+  "author": "Markus Hennig",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Kadz93/ha-inventer-cards/issues"
+  },
+  "homepage": "https://github.com/Kadz93/ha-inventer-cards#readme"
+}

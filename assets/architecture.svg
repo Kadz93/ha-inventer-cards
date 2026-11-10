@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1120" />
+      <stop offset="100%" stop-color="#020617" />
+    </linearGradient>
+    <linearGradient id="blueCard" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <linearGradient id="tealGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00adb5" />
+      <stop offset="100%" stop-color="#38bdf8" />
+    </linearGradient>
+    <filter id="boxShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <rect width="1000" height="600" rx="16" fill="url(#bg)" />
+
+  <!-- Title & Scope Note -->
+  <text x="50" y="55" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="24" font-weight="800">
+    System Architecture &amp; Data Flow
+  </text>
+  <text x="50" y="85" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14">
+    Notice: <tspan fill="#38bdf8" font-weight="700">ha-inventer-cards</tspan> is a pure <tspan fill="#38bdf8" font-weight="700">Lovelace Frontend Plugin</tspan>, decoupled from the backend Python integration.
+  </text>
+
+  <!-- LAYER 1: BROWSER / LOVELACE FRONTEND -->
+  <g transform="translate(50, 115)" filter="url(#boxShadow)">
+    <rect width="900" height="135" rx="12" fill="url(#blueCard)" stroke="#38bdf8" stroke-width="2" />
+    <rect x="20" y="16" width="180" height="26" rx="6" fill="#38bdf8" fill-opacity="0.15" />
+    <text x="32" y="34" fill="#38bdf8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700">FRONTEND LAYER (THIS REPO)</text>
+    <text x="215" y="34" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13">Runs purely in user's browser (HACS Category: Plugin / Dashboard)</text>
+
+    <!-- Card 1 Box -->
+    <rect x="30" y="55" width="400" height="65" rx="8" fill="#0f172a" stroke="#334155" stroke-width="1.2" />
+    <text x="45" y="80" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="700">inventer-e16-schedule-card</text>
+    <text x="45" y="102" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11">Time program editor, 32-slot memory sync &amp; profile assignments</text>
+
+    <!-- Card 2 Box -->
+    <rect x="470" y="55" width="400" height="65" rx="8" fill="#0f172a" stroke="#334155" stroke-width="1.2" />
+    <text x="485" y="80" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="700">inventer-e16-devices-card</text>
+    <text x="485" y="102" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11">Wireless RF device metrics, 1-click zone reassignment, dynamic zones</text>
+  </g>
+
+  <!-- ARROWS DOWN: WebSocket / Hass Connection -->
+  <g transform="translate(250, 252)">
+    <line x1="0" y1="0" x2="0" y2="40" stroke="#00adb5" stroke-width="2.5" stroke-dasharray="4,4" />
+    <polygon points="-5,38 0,48 5,38" fill="#00adb5" />
+    <text x="15" y="25" fill="#00adb5" font-family="monospace" font-size="11" font-weight="600">hass.connection.sendMessagePromise (call_service)</text>
+  </g>
+  <g transform="translate(750, 252)">
+    <line x1="0" y1="40" x2="0" y2="0" stroke="#38bdf8" stroke-width="2.5" />
+    <polygon points="-5,10 0,0 5,10" fill="#38bdf8" />
+    <text x="-210" y="25" fill="#38bdf8" font-family="monospace" font-size="11" font-weight="600">hass.states (real-time reactive push)</text>
+  </g>
+
+  <!-- LAYER 2: HOME ASSISTANT CORE & BACKEND INTEGRATION -->
+  <g transform="translate(50, 305)" filter="url(#boxShadow)">
+    <rect width="900" height="135" rx="12" fill="url(#blueCard)" stroke="#475569" stroke-width="1.5" />
+    <rect x="20" y="16" width="180" height="26" rx="6" fill="#f59e0b" fill-opacity="0.15" />
+    <text x="32" y="34" fill="#fbbf24" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700">BACKEND INTEGRATION</text>
+    <text x="215" y="34" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13">Separate Home Assistant Custom Component (custom_components/inventer_e16)</text>
+
+    <!-- Services Exposed -->
+    <rect x="30" y="55" width="400" height="65" rx="8" fill="#0f172a" stroke="#334155" stroke-width="1.2" />
+    <text x="45" y="80" fill="#fbbf24" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600">Home Assistant Services</text>
+    <text x="45" y="100" fill="#cbd5e1" font-family="monospace" font-size="11">get_time_program, set_time_program, delete_entry</text>
+
+    <!-- Fan Entities & Device Registry -->
+    <rect x="470" y="55" width="400" height="65" rx="8" fill="#0f172a" stroke="#334155" stroke-width="1.2" />
+    <text x="485" y="80" fill="#fbbf24" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600">Device Services &amp; Fan Entities</text>
+    <text x="485" y="100" fill="#cbd5e1" font-family="monospace" font-size="11">get_devices, set_profile, assign_device_zone</text>
+  </g>
+
+  <!-- ARROWS DOWN: Hardware link -->
+  <g transform="translate(500, 442)">
+    <line x1="0" y1="0" x2="0" y2="40" stroke="#94a3b8" stroke-width="2" />
+    <polygon points="-5,38 0,48 5,38" fill="#94a3b8" />
+    <text x="15" y="25" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11">REST / Local Network / TCP</text>
+  </g>
+
+  <!-- LAYER 3: HARDWARE -->
+  <g transform="translate(50, 495)">
+    <rect width="900" height="75" rx="12" fill="#0f172a" stroke="#1e293b" stroke-width="1.5" />
+    <text x="30" y="44" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="15" font-weight="700">inVENTer Easy Connect e16 Hardware</text>
+    <text x="350" y="44" fill="#64748b" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13">Controller Memory (32 Slots) • RF Mesh 868MHz (Fans iV14-Zero, iV-Twin+, Indoor/Outdoor Sensors)</text>
+  </g>
+</svg>
