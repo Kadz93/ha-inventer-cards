@@ -1014,14 +1014,14 @@ class InventerE16DevicesCard extends HTMLElement {
         ${this._errorMessage ? `
           <div class="banner error">
             <span>⚠️</span>
-            <span>${this._errorMessage}</span>
+            <span>${escapeHtml(this._errorMessage)}</span>
           </div>
         ` : ""}
 
         ${this._statusMessage ? `
           <div class="banner status">
             <span>ℹ️</span>
-            <span>${this._statusMessage}</span>
+            <span>${escapeHtml(this._statusMessage)}</span>
           </div>
         ` : ""}
 
@@ -1125,7 +1125,7 @@ class InventerE16DevicesCard extends HTMLElement {
                     ` : ""}
                     ${dev.firmware ? `
                       <span class="metric-badge" title="${escapeHtml(this._t("firmware_version"))}">
-                        v${dev.firmware}
+                        v${escapeHtml(dev.firmware)}
                       </span>
                     ` : ""}
                   </div>
@@ -1495,7 +1495,7 @@ window.customCards.push({
   name: "inVENTer e16 Geräte & Zonen",
   description: "Erkannte Lüfter, Sensoren und Regler anzeigen und Zonen zuordnen",
   preview: true,
-  documentationURL: "https://github.com/Kadz93/ha-inventer-tools"
+  documentationURL: "https://github.com/Kadz93/ha-inventer-cards"
 });
 
 console.info(

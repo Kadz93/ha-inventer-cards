@@ -1195,11 +1195,11 @@ class InventerE16ScheduleCard extends HTMLElement {
           this._statusMessage
             ? `<div class="status-banner">
                 <svg viewBox="0 0 24 24" style="width: 18px; height: 18px;"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59L21 7Z"/></svg>
-                <span>${this._statusMessage}</span>
+                <span>${escapeHtml(this._statusMessage)}</span>
                </div>`
             : ""
         }
-        ${this._errorMessage ? `<div class="error-banner">${this._errorMessage}</div>` : ""}
+        ${this._errorMessage ? `<div class="error-banner">${escapeHtml(this._errorMessage)}</div>` : ""}
 
         ${
           this._deleteConfirm !== null
@@ -1220,7 +1220,7 @@ class InventerE16ScheduleCard extends HTMLElement {
             ? this._renderEditor(this._editingEntry)
             : `
           <div class="entries-info">
-            <span><strong>${selectedProfName}</strong> (${this._entries.length} / 32 ${this._t("not_synced").startsWith("Not") ? "entries used" : "Einträge belegt"})</span>
+            <span><strong>${escapeHtml(selectedProfName)}</strong> (${this._entries.length} / 32 ${this._t("not_synced").startsWith("Not") ? "entries used" : "Einträge belegt"})</span>
             ${this._loading ? `<span>${this._t("loading_short")}</span>` : !hasPulled ? `<span>${this._t("not_synced")}</span>` : ""}
           </div>
 
@@ -1693,7 +1693,7 @@ window.customCards.push({
   name: "inVENTer e16 Zeitplan",
   description: "Zeitprofile bearbeiten (Wohnzimmer, Schlafzimmer, Benutzerdefinierte Profile 1-9 etc.)",
   preview: true,
-  documentationURL: "https://github.com/Kadz93/ha-inventer-tools"
+  documentationURL: "https://github.com/Kadz93/ha-inventer-cards"
 });
 
 console.info(
@@ -2721,14 +2721,14 @@ class InventerE16DevicesCard extends HTMLElement {
         ${this._errorMessage ? `
           <div class="banner error">
             <span>⚠️</span>
-            <span>${this._errorMessage}</span>
+            <span>${escapeHtml(this._errorMessage)}</span>
           </div>
         ` : ""}
 
         ${this._statusMessage ? `
           <div class="banner status">
             <span>ℹ️</span>
-            <span>${this._statusMessage}</span>
+            <span>${escapeHtml(this._statusMessage)}</span>
           </div>
         ` : ""}
 
@@ -2832,7 +2832,7 @@ class InventerE16DevicesCard extends HTMLElement {
                     ` : ""}
                     ${dev.firmware ? `
                       <span class="metric-badge" title="${escapeHtml(this._t("firmware_version"))}">
-                        v${dev.firmware}
+                        v${escapeHtml(dev.firmware)}
                       </span>
                     ` : ""}
                   </div>
@@ -3202,7 +3202,7 @@ window.customCards.push({
   name: "inVENTer e16 Geräte & Zonen",
   description: "Erkannte Lüfter, Sensoren und Regler anzeigen und Zonen zuordnen",
   preview: true,
-  documentationURL: "https://github.com/Kadz93/ha-inventer-tools"
+  documentationURL: "https://github.com/Kadz93/ha-inventer-cards"
 });
 
 console.info(
